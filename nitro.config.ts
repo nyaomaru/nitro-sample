@@ -13,4 +13,9 @@ export default defineNitroConfig({
       },
     },
   },
+  routeRules: {
+    '/test/**': { swr: true },
+    '/redirect': { redirect: '/test' },
+    '/proxy/example': { proxy: 'https://example.com' },
+  },
 });
