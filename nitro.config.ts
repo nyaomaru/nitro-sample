@@ -4,6 +4,7 @@ export default defineNitroConfig({
   compatibilityDate: '2025-01-09',
   experimental: {
     asyncContext: true,
+    websocket: true,
   },
   runtimeConfig: {
     session: {
