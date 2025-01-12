@@ -19,4 +19,16 @@ export default defineNitroConfig({
     '/redirect': { redirect: '/test' },
     '/proxy/example': { proxy: 'https://example.com' },
   },
+  storage: {
+    db: {
+      driver: 'fs',
+      base: './data/db',
+    },
+  },
+  devStorage: {
+    db: {
+      driver: 'fs',
+      base: './data/db',
+    },
+  },
 });
