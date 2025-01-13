@@ -5,6 +5,7 @@ export default defineNitroConfig({
   experimental: {
     asyncContext: true,
     websocket: true,
+    database: true,
   },
   runtimeConfig: {
     session: {
@@ -29,6 +30,12 @@ export default defineNitroConfig({
     db: {
       driver: 'fs',
       base: './data/db',
+    },
+  },
+  database: {
+    default: {
+      connector: 'sqlite',
+      options: { name: 'db' },
     },
   },
 });

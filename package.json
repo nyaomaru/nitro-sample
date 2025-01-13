@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "better-sqlite3": "^11.7.2",
     "nitropack": "latest"
   },
   "private": true,
