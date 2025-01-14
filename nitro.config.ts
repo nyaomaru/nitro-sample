@@ -19,6 +19,7 @@ export default defineNitroConfig({
     '/test/**': { swr: true },
     '/redirect': { redirect: '/test' },
     '/proxy/example': { proxy: 'https://example.com' },
+    'hello/**': { cache: { maxAge: 60 * 60 } },
   },
   storage: {
     db: {
