@@ -39,4 +39,10 @@ export default defineNitroConfig({
       options: { name: 'db' },
     },
   },
+  serverAssets: [
+    {
+      baseName: 'templates',
+      dir: './templates',
+    },
+  ],
 });
