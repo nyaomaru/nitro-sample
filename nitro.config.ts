@@ -45,4 +45,5 @@ export default defineNitroConfig({
       dir: './templates',
     },
   ],
+  plugins: ['my-plugins/hello.ts'],
 });
