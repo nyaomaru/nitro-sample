@@ -9,6 +9,8 @@ export default defineNitroConfig({
     tasks: true,
   },
   runtimeConfig: {
+    apiToken: 'dev_token',
+    helloWorld: 'foo',
     session: {
       default: {
         name: 'my-session',
