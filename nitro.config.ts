@@ -6,6 +6,7 @@ export default defineNitroConfig({
     asyncContext: true,
     websocket: true,
     database: true,
+    tasks: true,
   },
   runtimeConfig: {
     session: {
@@ -46,4 +47,7 @@ export default defineNitroConfig({
     },
   ],
   plugins: ['my-plugins/hello.ts'],
+  scheduledTasks: {
+    '* * * * *': ['cms:update'],
+  },
 });
