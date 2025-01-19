@@ -52,4 +52,5 @@ export default defineNitroConfig({
   scheduledTasks: {
     '* * * * *': ['cms:update'],
   },
+  preset: './preset',
 });
