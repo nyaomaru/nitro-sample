@@ -53,4 +53,7 @@ export default defineNitroConfig({
     '* * * * *': ['cms:update'],
   },
   preset: './preset',
+  alias: {
+    string_decoder: './string_decoder.js', // カスタムモジュールを参照
+  },
 });

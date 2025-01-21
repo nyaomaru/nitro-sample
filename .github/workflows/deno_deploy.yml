@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - deploy_test
   pull_request:
     branches:
       - main
+      - deploy_test
 
 jobs:
   deploy:
@@ -23,10 +25,10 @@ jobs:
       - run: bun install
       - run: bun run build
         env:
-          NITRO_PRESET: deno_deploy
+          NITRO_PRESET: deno_server
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: nyaomaru-nitro-sample
-          entrypoint: server/index.ts
+          entrypoint: server/index.mjs
           root: .output
