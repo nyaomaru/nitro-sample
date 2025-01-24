@@ -1,3 +1,5 @@
+import { resolve } from 'path';
+
 //https://nitro.unjs.io/config
 export default defineNitroConfig({
   srcDir: 'server',
@@ -54,6 +56,7 @@ export default defineNitroConfig({
   },
   preset: './preset',
   alias: {
-    string_decoder: './string_decoder.js', // カスタムモジュールを参照
+    string_decoder: './string_decoder.js',
+    '@/templates': resolve('./server/templates'),
   },
 });
