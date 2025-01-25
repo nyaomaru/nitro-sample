@@ -1,14 +1,10 @@
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
 import { templates } from '@/templates/helpers';
+import { layoutTemplateLoader } from '@/utils/fileLoader';
 
 export default defineEventHandler((event) => {
   const name = getRouterParam(event, 'name');
 
-  const template = readFileSync(
-    resolve('./server/templates/layout.html'),
-    'utf-8'
-  );
+  const template = layoutTemplateLoader();
 
   const html = template
     .replace(templates.title, `Hello ${name}`)
