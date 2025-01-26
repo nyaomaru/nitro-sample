@@ -2,6 +2,9 @@ type StorageTest = {
   hello: string;
 };
 
+import { templates } from '@/templates/helpers';
+import { layoutTemplateLoader } from '@/utils/fileLoader';
+
 export default defineEventHandler(async (event) => {
   await useStorage().setItem('test:foo', { hello: 'world' });
   const storageTest1 = (await useStorage().getItem('test:foo')) as StorageTest;
@@ -16,11 +19,21 @@ export default defineEventHandler(async (event) => {
   await useStorage<StorageTest>('test').getItem('foo');
   const storageTest4 = await useStorage('test').getItem<StorageTest>('foo');
 
-  return `<section>
-    <p>This is dev environment.</p>
-    <p>Storage test1: ${storageTest1.hello}</p>
-    <p>Storage test2: ${storageTest2.hello}</p>
-    <p>Storage test3: ${storageTest3}</p>
-    <p>Storage test4: ${storageTest4.hello}</p>
-    </section>`;
+  const template = layoutTemplateLoader();
+
+  const html = template.replace(templates.title, '[dev] Storage test').replace(
+    templates.content,
+    `
+      <h1>Storage test dev</h1>
+      <section>
+        <p>This is dev environment.</p>
+        <p>Storage test1: ${storageTest1.hello}</p>
+        <p>Storage test2: ${storageTest2.hello}</p>
+        <p>Storage test3: ${storageTest3}</p>
+        <p>Storage test4: ${storageTest4.hello}</p>
+      </section>
+    `
+  );
+
+  return html;
 });
