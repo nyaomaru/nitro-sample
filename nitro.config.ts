@@ -57,6 +57,6 @@ export default defineNitroConfig({
   preset: './preset',
   alias: {
     string_decoder: './string_decoder.js',
-    '@/templates': resolve('./server/templates'),
+    '@': resolve('./server'),
   },
 });

@@ -1,15 +1,11 @@
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
 import { templates } from '@/templates/helpers';
+import { layoutTemplateLoader } from '@/utils/fileLoader';
 
 export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id');
   const data = await $fetch(`/api/users/${id}`);
 
-  const template = readFileSync(
-    resolve('./server/templates/layout.html'),
-    'utf-8'
-  );
+  const template = layoutTemplateLoader();
 
   const html = template.replace(templates.title, `User Data - ${id}`).replace(
     templates.content,
