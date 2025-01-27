@@ -1,11 +1,10 @@
 import { templates } from '@/templates/helpers';
-import { layoutTemplateLoader } from '@/utils/fileLoader';
 
 export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id');
   const data = await $fetch(`/api/users/${id}`);
 
-  const template = layoutTemplateLoader();
+  const template = await layoutTemplateLoader();
 
   const html = template.replace(templates.title, `User Data - ${id}`).replace(
     templates.content,

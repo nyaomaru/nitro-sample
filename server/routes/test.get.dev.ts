@@ -3,7 +3,6 @@ type StorageTest = {
 };
 
 import { templates } from '@/templates/helpers';
-import { layoutTemplateLoader } from '@/utils/fileLoader';
 
 export default defineEventHandler(async (event) => {
   await useStorage().setItem('test:foo', { hello: 'world' });
@@ -19,7 +18,7 @@ export default defineEventHandler(async (event) => {
   await useStorage<StorageTest>('test').getItem('foo');
   const storageTest4 = await useStorage('test').getItem<StorageTest>('foo');
 
-  const template = layoutTemplateLoader();
+  const template = await layoutTemplateLoader();
 
   const html = template.replace(templates.title, '[dev] Storage test').replace(
     templates.content,
