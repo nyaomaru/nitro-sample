@@ -1,10 +1,9 @@
 import { templates } from '@/templates/helpers';
-import { layoutTemplateLoader } from '@/utils/fileLoader';
 
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
   const name = getRouterParam(event, 'name');
 
-  const template = layoutTemplateLoader();
+  const template = await layoutTemplateLoader();
 
   const html = template
     .replace(templates.title, `Hello ${name}`)
