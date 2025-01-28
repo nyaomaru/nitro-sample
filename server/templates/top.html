@@ -47,26 +47,7 @@
             Say Hello (Value: {{ store.randomHelloValue }})
           </a>
         </div>
-        <div class="flex-1 m-4">
-          <a
-            href="/assets"
-            class="block w-64 m-4 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg"
-          >
-            Assets
-          </a>
-          <a
-            href="/fetch"
-            class="block w-64 m-4 bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg"
-          >
-            Fetch
-          </a>
-          <a
-            href="/test"
-            class="block w-64 m-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg"
-          >
-            Storage test
-          </a>
-        </div>
+        {{ navigation }}
       </nav>
     </main>
   </body>
